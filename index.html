@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit-All Gymnasium</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #000;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #f97316;
+        }
+
+        .btn {
+            background-color: #f97316;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ea580c;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1920/600');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem;
+            background-color: #f3f4f6;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: #f97316;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Membership Plans */
+        .plans {
+            padding: 4rem 2rem;
+            background: #f3f4f6;
+        }
+
+        .plans-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .plan-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #f97316;
+            margin: 1rem 0;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .features-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-column a {
+            color: #9ca3af;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column a:hover {
+            color: #f97316;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid,
+            .plans-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">Fit-All</a>
+            <div class="nav-menu">
+                <a href="#home">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="about.html">About Us</a>
+                <a href="membership.html">Membership</a>
+                <button class="btn" onClick="javascript:openPage()">Join Now</button>
+        </div>
+        </nav>
+    </header>
+
+    <script>
+        function openPage() {
+            window.location.href = "join-now.html"; // Redirect to the join-how.html page
+        }
+    </script>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transform Your Body, Transform Your Life</h1>
+            <p>Join Fit-All Gymnasium and start your fitness journey today.</p>
+            <button class="btn">Start Your Journey</button>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏋️</div>
+                <h3>Personal Training</h3>
+                <p>Get personalized workout plans and one-on-one guidance.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👥</div>
+                <h3>Group Classes</h3>
+                <p>Join our energetic group classes including yoga, HIIT, and more.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⏰</div>
+                <h3>24/7 Access</h3>
+                <p>Work out on your schedule with our secure 24/7 facility access.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="plans" id="membership">
+        <h2>Membership Plans</h2>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <h3>Basic</h3>
+                <div class="price">$29<span>/month</span></div>
+                <ul class="features-list">
+                    <li>Access to gym equipment</li>
+                    <li>Locker room access</li>
+                    <li>Basic fitness assessment</li>
+                </ul>
+                <button class="btn">Choose Basic</button>
+            </div>
+            <div class="plan-card">
+                <h3>Premium</h3>
+                <div class="price">$49<span>/month</span></div>
+                <ul class="features-list">
+                    <li>All Basic features</li>
+                    <li>2 Personal training sessions/month</li>
+                    <li>Group classes access</li>
+                    <li>Nutrition consultation</li>
+                </ul>
+                <button class="btn">Choose Premium</button>
+            </div>
+            <div class="plan-card">
+                <h3>Elite</h3>
+                <div class="price">$89<span>/month</span></div>
+                <ul class="features-list">
+                    <li>All Premium features</li>
+                    <li>Unlimited PT sessions</li>
+                    <li>Priority booking</li>
+                    <li>Spa access</li>
+                </ul>
+                <button class="btn">Choose Elite</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Fit-All Gymnasium</h3>
+                <p>Your journey to fitness begins here.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="#classes">Classes</a>
+                <a href="#trainers">Trainers</a>
+                <a href="#schedule">Schedule</a>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>123 Fitness Street</p>
+                <p>Workout City, WC 12345</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
